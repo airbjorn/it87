@@ -53,7 +53,7 @@ static inline int strict_strtol(const char *cp, unsigned int base, long *res)
  * We still have the functios declared as external, so we can not use
  * static inline.
  */
-#if !defined(CONFIG_HWMON_VID) && !defined(CONFIG_HWMON_VID_MODULE)
+#if !defined(CONFIG_HWMON_VID) || !defined(CONFIG_HWMON_VID_MODULE)
 int vid_from_reg(int val, u8 vrm)
 {
 	return 0;
