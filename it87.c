@@ -256,7 +256,7 @@ static bool fix_pwm_polarity;
 #define IT87_REG_ALARM2        0x02
 #define IT87_REG_ALARM3        0x03
 
-#define IT87_REG_BANK		0x06
+#define IT87_REG_BANK          0x06
 
 /*
  * The IT8718F and IT8720F have the VID value in a different register, in
