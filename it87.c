@@ -347,6 +347,7 @@ static const u16 IT87_REG_TEMP_SRC1[] =	{ 0x21d, 0x21e, 0x21f };
 #define NUM_FAN_DIV		3
 #define NUM_PWM			ARRAY_SIZE(IT87_REG_PWM)
 #define NUM_AUTO_PWM		ARRAY_SIZE(IT87_REG_PWM)
+#define NUM_PWM_FREQ		8
 
 struct it87_devices {
 	const char *name;
@@ -984,7 +985,7 @@ static u8 temp_map_to_reg(const struct it87_data *data, int nr, u8 map)
  * sometimes just one. It is unknown if this is a datasheet error or real,
  * so this is ignored for now.
  */
-static const unsigned int pwm_freq[8] = {
+static const unsigned int pwm_freq[NUM_PWM_FREQ] = {
 	48000000,
 	24000000,
 	12000000,
@@ -1982,7 +1983,7 @@ static ssize_t set_pwm_freq(struct device *dev, struct device_attribute *attr,
 	val *= has_newer_autopwm(data) ? 256 : 128;
 
 	/* Search for the nearest available frequency */
-	for (i = 0; i < 7; i++) {
+	for (i = 0; i <= NUM_PWM_FREQ; i++) {
 		if (val > (pwm_freq[i] + pwm_freq[i + 1]) / 2)
 			break;
 	}
