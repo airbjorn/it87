@@ -2462,6 +2462,7 @@ static ssize_t set_beep(struct device *dev, struct device_attribute *attr,
 		data->beeps |= BIT(bitnr);
 	else
 		data->beeps &= ~BIT(bitnr);
+
 	data->write(data, IT87_REG_BEEP_ENABLE, data->beeps);
 	it87_unlock(data);
 	return count;
