@@ -3029,6 +3029,9 @@ static int __init it87_find(int sioaddr, unsigned short *address,
 		break;
 	case IT8716F_DEVID:
 	case IT8726F_DEVID:
+		/* Confusing: for IT8716F the type does not get assigned, but
+		 * for IT8726F the type it8716 gets assigned in turn.
+		 * --> Intended as it is? */
 		sio_data->type = it8716;
 		break;
 	case IT8718F_DEVID:
