@@ -1480,6 +1480,7 @@ static int get_temp_type(struct it87_data *data, int index)
 			if (index < 3)
 				break;
 		case it8655:
+			/* something  missing in here? */
 		case it8665:
 			if (src1 < 3) {
 				index = src1;
