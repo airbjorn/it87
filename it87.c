@@ -3562,6 +3562,7 @@ static int __init it87_find(int sioaddr, unsigned short *address,
 					sio_data->skip_fan |= BIT(4);
 				break;
 			case it8720:
+				/* anything missing here or below? */
 			case it8721:
 			case it8728:
 				if (!(reg & BIT(5)))
