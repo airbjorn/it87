@@ -4313,6 +4313,8 @@ static void __exit sm_it87_exit(void)
 }
 
 MODULE_AUTHOR("Chris Gauthron, Jean Delvare <jdelvare@suse.de>");
+/* add the belonging IT86xx families also in MODULE_DESCRIPTION
+ * (I don't know which families to name as a meaningful bundle) */
 MODULE_DESCRIPTION("IT8705F/IT871xF/IT872xF hardware monitoring driver");
 module_param(update_vbat, bool, 0000);
 MODULE_PARM_DESC(update_vbat, "Update vbat if set else return powerup value");
